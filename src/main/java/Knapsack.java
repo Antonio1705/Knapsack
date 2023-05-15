@@ -29,15 +29,15 @@ class Knapsack{
         }
     }
 
-    public int maxValueOfItems(int maxWeightOfSack, List<Item> items){
-        int ll = 0;
+    public int maxValueOfItems(int capacity, List<Item> items){
+        int currentStartItem = 0;
         int maxValue = 0;
         int maxValue2 = 0;
         int currentWeightOfSack = 0;
 
         for (int n = 0; n<items.size();n ++){
-            for (int i = ll; i<items.size();i++){
-                if (currentWeightOfSack + items.get(i).getItemWeight() <= maxWeightOfSack){
+            for (int i = currentStartItem; i<items.size();i++){
+                if (currentWeightOfSack + items.get(i).getItemWeight() <= capacity){
                     maxValue2 += items.get(i).getItemValue();
                     currentWeightOfSack += items.get(i).getItemWeight();
                 }
@@ -45,7 +45,7 @@ class Knapsack{
             if (maxValue<maxValue2){
                 maxValue = maxValue2;
             }
-            ll +=1;
+            currentStartItem +=1;
             maxValue2 = 0;
             currentWeightOfSack = 0;
         }
