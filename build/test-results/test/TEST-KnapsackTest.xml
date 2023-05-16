@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="KnapsackTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-05-16T09:28:17" hostname="PC0526" time="0.066">
+<testsuite name="KnapsackTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-16T11:47:18" hostname="PC0526" time="0.076">
   <properties/>
-  <testcase name="testFiveItemsCannotBeGreedyByWeight" classname="KnapsackTest" time="0.061"/>
-  <testcase name="testOneItemTooHeavy" classname="KnapsackTest" time="0.001"/>
-  <testcase name="testEightItems" classname="KnapsackTest" time="0.0"/>
-  <testcase name="testFiveItemsCannotBeGreedyByValue" classname="KnapsackTest" time="0.001"/>
-  <testcase name="testNoItems" classname="KnapsackTest" time="0.0"/>
-  <testcase name="testExampleKnapsack" classname="KnapsackTest" time="0.001"/>
-  <testcase name="testFifteenItems" classname="KnapsackTest" time="0.001"/>
+  <testcase name="testFiveItemsCannotBeGreedyByWeight" classname="KnapsackTest" time="0.076"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
