@@ -9,44 +9,44 @@ class Knapsack{
     public  int[] weight;
     public  int[] value;
 
-    public int maximumValue(int capacity,List<Item> itemList ){
+    public int maximumValue(int capacity,List<Item> itemList ) {
         this.items = itemList;
-        if (items.size() == 0){
-            return 0;
-        }
-        deleteItemWeightToBig(capacity,items);
-        if (items.size() == 1){
-            return items.get(0).getItemValue();
-        }
 
         weight = new int[items.size()];
         value = new int[items.size()];
 
         Item[] itemsArray = new Item[items.size()];
 
-        for (int i = 0; i<items.size();i++){
+        for (int i = 0; i < items.size(); i++) {
             itemsArray[i] = items.get(i);
             weight[i] = items.get(i).getItemWeight();
             value[i] = items.get(i).getItemValue();
 
         }
 
-        Arrays.sort(itemsArray);
-        for(int it = 0; it < itemsArray.length;it++){
-            System.out.println(itemsArray[it].getEffectivenessInteger());
-        }
-        /*Collections.sort(items, new Comparator<Item>(){
-            public int compare(Item item1, Item item2){
-                return Double.valueOf( item1.getEffectivenessInteger()).compareTo(item2.getEffectivenessInteger());
-            }
-        });*/
 
         List<Item> newItemList = Arrays.asList(itemsArray);
 
-        return knapSack(weight.length,capacity);
-        //return maxValueOfItems(capacity,newItemList);
+        return knapSack(weight.length, capacity);
     }
 
+    public int  knapSack(int pointer, int capacity) {
+        if (pointer == 0 || capacity == 0){
+            return 0;
+        } else if (this.weight[pointer-1] > capacity) {
+            return  knapSack(pointer-1,capacity);
+        }else {
+            int  kk = knapSack(pointer-1,capacity);
+            int kk2 = value[pointer-1] + knapSack(pointer-1,capacity - weight[pointer-1]);
+            /// the both can be used
+            //int result = Math.max(kk,kk2);
+            return kk > kk2 ?  kk:kk2;
+        }
+    }
+
+
+
+/*
     public void deleteItemWeightToBig(int maxWeightOfSack,List<Item> items){
 
             for (int i = 0; i<items.size(); i++){
@@ -81,7 +81,7 @@ class Knapsack{
         return maxValue;
     }
 
-    /*public List<Item> effectiveness(List<Item> itemsList){
+    public List<Item> effectiveness(List<Item> itemsList){
         Item itemCurrent;
         for(int i = 0; i<itemsList.size()-1;i++){
             if ((int)itemsList.get(i).getEffectivenessInteger() < (int)itemsList.get(i+1).getEffectivenessInteger()){
@@ -96,18 +96,5 @@ class Knapsack{
         return itemsList;
     }*/
 
-    public int  knapSack(int pointer, int capacity) {
-        if (pointer == 0 || capacity == 0){
-            return 0;
-        } else if (this.weight[pointer-1] > capacity) {
-            return  knapSack(pointer-1,capacity);
-        }else {
-            int  kk = knapSack(pointer-1,capacity);
-            int kk2 = value[pointer-1] + knapSack(pointer-1,capacity - weight[pointer-1]);
-            int result = Math.max(kk,kk2);
-            return result;
-        }
 
-
-    }
 }
