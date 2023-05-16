@@ -8,7 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class KnapsackTest {
-
     private Knapsack knapsack;
 
     @Before
@@ -110,7 +109,6 @@ public class KnapsackTest {
             new Item(118, 229),
             new Item(120, 240)
         );
-
         assertThat(knapsack.maximumValue(750, items)).isEqualTo(1458);
     }
 
