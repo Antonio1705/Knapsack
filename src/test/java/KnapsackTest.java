@@ -60,7 +60,7 @@ public class KnapsackTest {
         assertThat(knapsack.maximumValue(10, items)).isEqualTo(80);
     }
 
-    @Ignore("Remove to run test")
+
     @Test
     public void testExampleKnapsack() {
         List<Item> items = List.of(

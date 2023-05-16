@@ -1,9 +1,12 @@
 public class Item {
     private int itemWeight;
     private int itemValue;
+    private double effectivenessInteger;
+
     public Item(int itemWeight, int itemValue){
         this.itemValue = itemValue;
         this.itemWeight = itemWeight;
+        this.effectivenessInteger = (double) itemValue /(double)itemWeight;
 
     }
 
@@ -21,5 +24,9 @@ public class Item {
 
     public int getItemValue() {
         return itemValue;
+    }
+
+    public double getEffectivenessInteger() {
+        return effectivenessInteger;
     }
 }
