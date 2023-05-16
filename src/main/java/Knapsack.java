@@ -1,9 +1,13 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 class Knapsack{
 
     List<Item> items;
+
+    public  int[] weight;
+    public  int[] value;
 
     public int maximumValue(int capacity,List<Item> itemList ){
         this.items = itemList;
@@ -15,10 +19,16 @@ class Knapsack{
             return items.get(0).getItemValue();
         }
 
+        weight = new int[items.size()];
+        value = new int[items.size()];
+
         Item[] itemsArray = new Item[items.size()];
 
         for (int i = 0; i<items.size();i++){
             itemsArray[i] = items.get(i);
+            weight[i] = items.get(i).getItemWeight();
+            value[i] = items.get(i).getItemValue();
+
         }
 
         Arrays.sort(itemsArray);
@@ -32,7 +42,9 @@ class Knapsack{
         });*/
 
         List<Item> newItemList = Arrays.asList(itemsArray);
-        return maxValueOfItems(capacity,newItemList);
+
+        return knapSack(weight.length,capacity);
+        //return maxValueOfItems(capacity,newItemList);
     }
 
     public void deleteItemWeightToBig(int maxWeightOfSack,List<Item> items){
@@ -84,5 +96,18 @@ class Knapsack{
         return itemsList;
     }*/
 
+    public int  knapSack(int pointer, int capacity) {
+        if (pointer == 0 || capacity == 0){
+            return 0;
+        } else if (this.weight[pointer-1] > capacity) {
+            return  knapSack(pointer-1,capacity);
+        }else {
+            int  kk = knapSack(pointer-1,capacity);
+            int kk2 = value[pointer-1] + knapSack(pointer-1,capacity - weight[pointer-1]);
+            int result = Math.max(kk,kk2);
+            return result;
+        }
 
+
+    }
 }
