@@ -1,4 +1,4 @@
-public class Item {
+public class Item implements  Comparable<Item>{
     private int itemWeight;
     private int itemValue;
     private double effectivenessInteger;
@@ -6,7 +6,7 @@ public class Item {
     public Item(int itemWeight, int itemValue){
         this.itemValue = itemValue;
         this.itemWeight = itemWeight;
-        this.effectivenessInteger = (double) itemValue /(double)itemWeight;
+        this.effectivenessInteger = ((double) itemValue /(double)itemWeight) *1000;
 
     }
 
@@ -28,5 +28,10 @@ public class Item {
 
     public double getEffectivenessInteger() {
         return effectivenessInteger;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return (int) o.effectivenessInteger -  (int)this.effectivenessInteger;
     }
 }

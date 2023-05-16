@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="KnapsackTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-05-16T06:49:43" hostname="PC0526" time="0.016">
+<testsuite name="KnapsackTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-05-16T07:43:33" hostname="PC0526" time="0.083">
   <properties/>
-  <testcase name="testFiveItemsCannotBeGreedyByWeight" classname="KnapsackTest" time="0.016">
-    <failure message="java.lang.UnsupportedOperationException" type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
-	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
-	at java.base/java.util.ImmutableCollections$AbstractImmutableList.sort(ImmutableCollections.java:261)
-	at java.base/java.util.Collections.sort(Collections.java:179)
-	at Knapsack.maximumValue(Knapsack.java:19)
-	at KnapsackTest.testFiveItemsCannotBeGreedyByWeight(KnapsackTest.java:46)
+  <testcase name="testEightItems" classname="KnapsackTest" time="0.083">
+    <failure message="org.junit.ComparisonFailure: expected:&lt;[900]&gt; but was:&lt;[888]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[900]&gt; but was:&lt;[888]&gt;
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at KnapsackTest.testEightItems(KnapsackTest.java:90)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
@@ -50,6 +48,14 @@
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <system-out><![CDATA[]]></system-out>
+  <system-out><![CDATA[14000.0
+11428.57142857143
+10000.0
+4000.0
+2800.0
+2666.6666666666665
+2500.0
+2500.0
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,5 +1,4 @@
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.List;
 
 class Knapsack{
@@ -16,24 +15,34 @@ class Knapsack{
             return items.get(0).getItemValue();
         }
 
-        Collections.sort(items, new Comparator<Item>(){
+        Item[] itemsArray = new Item[items.size()];
+
+        for (int i = 0; i<items.size();i++){
+            itemsArray[i] = items.get(i);
+        }
+
+        Arrays.sort(itemsArray);
+        for(int it = 0; it < itemsArray.length;it++){
+            System.out.println(itemsArray[it].getEffectivenessInteger());
+        }
+        /*Collections.sort(items, new Comparator<Item>(){
             public int compare(Item item1, Item item2){
                 return Double.valueOf( item1.getEffectivenessInteger()).compareTo(item2.getEffectivenessInteger());
             }
-        });
-        return maxValueOfItems(capacity,items);
+        });*/
+
+        List<Item> newItemList = Arrays.asList(itemsArray);
+        return maxValueOfItems(capacity,newItemList);
     }
 
     public void deleteItemWeightToBig(int maxWeightOfSack,List<Item> items){
 
             for (int i = 0; i<items.size(); i++){
-                if (items.get(i).getItemWeight() >= maxWeightOfSack){
+                if (items.get(i).getItemWeight() > maxWeightOfSack){
                     items.get(i).setItemWeight(0);
                     items.get(i).setItemValue(0);
                 }
-
             }
-
     }
 
     public int maxValueOfItems(int capacity, List<Item> itemsI){
@@ -71,11 +80,7 @@ class Knapsack{
             itemsList.set(i+1,itemCurrent);
 
             effectiveness(itemsList);
-
         }
-
-
-
         return itemsList;
     }*/
 
