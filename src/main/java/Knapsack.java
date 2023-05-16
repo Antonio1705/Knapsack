@@ -44,6 +44,29 @@ class Knapsack{
         }
     }
 
+    int[][] knapsackArray;
+    public int  knapSack2(int pointer, int capacity) {
+        if (knapsackArray == null){
+            knapsackArray = new int[pointer][capacity];
+        }
+        if (pointer == 0 || capacity == 0){
+            return 0;
+        } else if (this.weight[pointer-1] > capacity) {
+            return  knapSack(pointer-1,capacity);
+        }else {
+            int  kk = knapSack(pointer-1,capacity);
+            int kk2 = value[pointer-1] + knapSack(pointer-1,capacity - weight[pointer-1]);
+            /// the both can be used
+            //int result = Math.max(kk,kk2);
+            ///return kk > kk2 ?  kk:kk2;
+            int result = Math.max(kk,kk2);
+            knapsackArray[pointer][capacity] = result;
+
+            return result;
+
+        }
+    }
+
 
 
 /*
